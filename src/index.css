@@ -1,5 +1,5 @@
 :root {
-  font-family: Marvel, system-ui;
+  font-family: STIX Two Text, system-ui;
   line-height: 1.5;
   font-weight: 400;
   font-size: large;
@@ -8,12 +8,15 @@
   color: rgba(255, 255, 255, 0.87);
   --darker: #1c1c1c;
   --dark: #202020;
-  --red: #C62F1A;
+  --red: #c62f1a;
   --goldish: #d7b279;
+  --white: #ececec;
   background-color: var(--dark);
 
   margin: 0 auto;
   text-align: center;
+  white-space: pre-line;
+  /* Handle \n for firebase */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -92,30 +95,84 @@
   font-weight: 900;
   font-style: italic;
 }
-
-
-.navbar {
-  background-color: #202020;
-  background: linear-gradient(to bottom, #202020, rgba(32, 32, 32, 1), rgba(32, 32, 32, 0.8), rgba(32, 32, 32, 0));
-  display: flex;
-  text-align: center;
-  align-items: center;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
+.stix-two-text {
+  font-family: "STIX Two Text", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
+/* Navbar Styling */
+.navbar {
+  background-color: #202020;
+  background: linear-gradient(
+    to bottom,
+    #202020,
+    rgba(32, 32, 32, 1),
+    rgba(32, 32, 32, 0)
+  );
+  display: flex;
+  width: 100%;
+  height: 200px;
+  position: fixed;
+  padding: 0 20px;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand img {
+  width: 80px;
+  cursor: pointer;
+  position: relative;
+  top: 20%;
+}
 
 .navbar-links {
+  position: relative;
   width: 100%;
   display: flex;
-  text-align: center;
-  align-items: center;
   justify-content: space-between;
   padding: 1rem;
   position: relative;
+  gap: 25px;
+}
+
+/* Burger Menu Icon */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 11;
+  position: inherit;
+  top: 10%;
+  right: 10%;
+}
+
+.burger-menu span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.burger-menu.open span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 5px);
+}
+
+.burger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -5px);
 }
 
 .socials {
@@ -123,18 +180,27 @@
   text-align: center;
   justify-content: space-evenly;
   padding: 1rem;
-  margin-bottom: 2.25rem;
-  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .doble-division {
   display: flex;
   justify-content: space-evenly;
-
 }
 
 .formato {
   padding: 0 8rem 0 8rem;
+}
+
+.callout {
+  border: solid 5px var(--goldish);
+  border-radius: 10px;
+  color-scheme: light dark;
+  font-size: larger;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .pagina {
@@ -144,11 +210,35 @@
   background-color: rgba(255, 255, 255, 0.87);
 }
 
+.pagina-dark {
+  width: 100vw;
+  color-scheme: light dark;
+  color: var(--white);
+  background-color: var(--dark);
+}
+
+.fotos {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  position: relative;
+}
+
 .foto-preview {
-  width: 250px;
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.25s;
+  border-radius: 5px;
   margin: 10px;
 }
 
+.foto-preview:hover,
+.foto-preview:focus {
+  border: 1px solid var(--goldish);
+  align-items: center;
+  transform: scale(1.1);
+  z-index: 10;
+}
 .premios {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -164,9 +254,7 @@ a {
 
 a:hover {
   color: var(--goldish);
-  filter: drop-shadow(0 0 0.25rem currentColor);
 }
-
 
 body {
   margin: 0;
@@ -207,19 +295,18 @@ footer {
   bottom: 0;
   left: 0;
   border-top: 3px solid var(--goldish);
-  /* margin-bottom: 0; */
+  margin-top: 2rem;
 }
 
 .foto-principal {
   width: 100%;
   height: 80vh;
   object-fit: cover;
-  margin-top: 2%;
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid var(--goldish);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -230,7 +317,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--goldish);
 }
 
 button:focus,
@@ -244,37 +331,6 @@ button:focus-visible {
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 50px;
-
-}
-
-div.obra {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--dark);
-  align-items: center;
-  border-radius: 15px;
-  width: 400px;
-  height: 1000px;
-  padding: 10px;
-  margin: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: 0.25s;
-}
-
-div.obra:hover,
-div.obra:focus {
-
-  border: 1px solid var(--goldish);
-  align-items: center;
-
-  transform: scale(1.05);
-}
-
-img.obra {
-  width: 250px;
-  height: 500px;
-  object-fit: cover;
-
 }
 
 .img-format-s {
@@ -289,49 +345,43 @@ img.obra {
   object-fit: contain;
 }
 
-p.obra {
-  text-align: left;
-  height: 200px;
-
-}
-
-h4.obra {
-  color: var(--goldish);
-  text-align: left;
-}
-
 .admin-dashboard {
-  padding: 20px;
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
 }
 
 .form-container {
-  display: flex;
   gap: 30px;
-}
-
-.show-form,
-.current-shows {
-  width: 50%;
-}
-
-.show-form h2,
-.current-shows h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 0 0 10vh 0;
+}
+
+.edit-zone {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  align-items: center;
+  margin: auto;
+  padding: 10px 60px 60px;
+  border: 1px solid var(--dark);
+  border-radius: 20px;
 }
 
 .input-field,
 .textarea-field {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--goldish);
   border-radius: 4px;
   width: 100%;
+  height: 20px;
 }
 
 .textarea-field {
@@ -346,8 +396,9 @@ h4.obra {
 .progress-bar {
   background-color: #f0f0f0;
   border-radius: 4px;
-  width: 100%;
-  height: 6px;
+  margin: 1.25rem auto;
+  width: 40%;
+  height: 20px;
 }
 
 .progress {
@@ -356,30 +407,98 @@ h4.obra {
   border-radius: 4px;
 }
 
-.btn {
-  background-color: #4a90e2;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
+.cartelera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 5vh;
 }
 
-.show-list {
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 80vh;
+}
+
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.show-item {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 4px;
+.login-form input {
+  width: 100%; /* Full width */
+  height: 50px; /* Control the height */
+  padding: 10px 15px; /* Control padding inside the input */
+  font-size: 18px; /* Control the size of the text */
+  border-radius: 5px; /* Optional: Round the corners */
+  border: 1px solid #ccc; /* Optional: Border color */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+.login-form input:hover,
+.login-form input:focus {
+  width: 100%; /* Full width */
+  height: 50px; /* Control the height */
+  padding: 10px 15px; /* Control padding inside the input */
+  font-size: 18px; /* Control the size of the text */
+  border-radius: 5px; /* Optional: Round the corners */
+  border: 1px solid var(--goldish); /* Optional: Border color */
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
-.show-item h3 {
-  font-size: 18px;
+div.obra {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--dark);
+  border-radius: 15px;
+  width: 400px;
+  height: 1000px;
+  padding: 40px 30px;
+  margin: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.25s;
+  background-color: var(--white);
+  backdrop-filter: blur(90px);
+}
+
+div.obra:hover,
+div.obra:focus {
+  border: 1px solid var(--goldish);
+  transform: scale(1.05);
+}
+
+img.obra {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.image-wrapper {
+  width: 250px;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  position: relative;
+}
+
+p.obra {
+  text-align: left;
+  height: 900px;
+}
+
+h4.obra {
+  color: var(--goldish);
+  text-align: left;
+}
+
+h2.obra {
+  text-align: left;
 }
 
 .booking-link {
@@ -387,8 +506,12 @@ h4.obra {
   text-decoration: none;
 }
 
+.quill > .ql-container > .ql-editor.ql-blank::before {
+  color: var(--goldish);
+}
 .action-buttons {
   display: flex;
+  margin: auto;
   gap: 10px;
   margin-top: 10px;
 }
@@ -411,8 +534,39 @@ h4.obra {
   cursor: pointer;
 }
 
+.content-box {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  align-items: center;
+  margin: auto;
+  padding: 10px 60px 60px;
+  border: 1px solid var(--goldish);
+  color: var(--white);
+  background-color: var(--dark);
+  border-radius: 20px;
+  gap: 20px;
+}
+
+.img-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--goldish);
+  border-radius: 20px;
+  padding: 20px;
+}
 
 @media (max-width: 768px) {
+  .doble-division {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 900px) {
   .cartelera {
     justify-content: center;
     /* Center the items on smaller screens */
@@ -420,8 +574,51 @@ h4.obra {
 
   div.obra {
     width: 100%;
-    /* Make the items take full width on smaller screens */
     max-width: 300px;
-    /* Optional: set a max width to avoid it being too wide */
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 0%;
+  }
+
+  .navbar-links {
+    gap: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    top: 0;
+    left: 0;
+    font-size: larger;
+    width: 100%;
+    height: 70vh;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(49, 49, 49, 0.5);
+    backdrop-filter: blur(60px);
+    transform: translateY(-100%);
+    padding: 80px 20px 80px 90px;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  .navbar-links.show {
+    transform: translateY(0%);
+  }
+
+  .navbar-brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+    top: -10%;
+    margin: auto;
+  }
+
+  .burger-menu {
+    display: flex;
   }
 }

@@ -22,7 +22,7 @@ export default function Foot() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-evenly',
-                    marginTop: '2.25rem'
+                    marginTop: '2.5rem'
                 }}>
                     <span><strong>Tadron</strong> Teatro</span>
                     |
@@ -46,9 +46,6 @@ export default function Foot() {
                     <Redes icon={faPhone} link={TelefonoLink} color='#C0F9C5'>
                         Teléfono
                     </Redes>
-
-
-
                 </div>
             </footer>
         </>
