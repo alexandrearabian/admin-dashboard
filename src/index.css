@@ -204,14 +204,14 @@
 }
 
 .pagina {
-  width: 100vw;
+  width: 100%;
   color-scheme: light dark;
   color: #202020;
   background-color: rgba(255, 255, 255, 0.87);
 }
 
 .pagina-dark {
-  width: 100vw;
+  width: 100%;
   color-scheme: light dark;
   color: var(--white);
   background-color: var(--dark);
@@ -350,7 +350,6 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
 }
 
 .form-container {
@@ -420,7 +419,7 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 80vh;
 }
 

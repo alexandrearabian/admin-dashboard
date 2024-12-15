@@ -180,6 +180,9 @@ export default function NuestroEspacio() {
               justifyContent: "center",
               alignItems: "center",
               paddingBottom: "2rem",
+              width: "100%" /* Ensure it doesn't go beyond the screen */,
+              maxWidth: "100%" /* Prevent overflow */,
+              overflowX: "hidden" /* Hide potential horizontal scroll */,
             }}
           >
             <h1>{espacio.header1}</h1>
