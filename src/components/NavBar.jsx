@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/LOGUITO.png";
+import logo from "/src/assets/LOGUITO.jpg";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/FirebaseConfig";
 import { signOut } from "firebase/auth";
