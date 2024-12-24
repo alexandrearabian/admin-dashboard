@@ -14,8 +14,6 @@ export default function TextInput({
     height: "200px",
     margin: "0 auto",
   },
-  multiline,
-  numberOfLines,
 }) {
   return (
     // <div>
@@ -28,11 +26,9 @@ export default function TextInput({
     // </div>
     <textarea
       value={value}
-      onChange={onChange} // Update value from textarea
+      onChange={(e) => onChange(e.target.value)} // Update value from textarea
       placeholder={placeholder}
       style={style}
-      multiline={multiline}
-      numberOfLines={numberOfLines}
     />
   );
 }

@@ -111,47 +111,47 @@ export default function CicloTxJ() {
 
           <TextInput
             value={justicia.header1}
-            onChangeText={(value) => handleTextChange("header1", value)}
+            onChange={(value) => handleTextChange("header1", value)}
           />
 
           <TextInput
             value={justicia.text1}
-            onChangeText={(value) => handleTextChange("text1", value)}
+            onChange={(value) => handleTextChange("text1", value)}
           />
 
           <TextInput
             value={justicia.text2}
-            onChangeText={(value) => handleTextChange("text2", value)}
+            onChange={(value) => handleTextChange("text2", value)}
           />
 
           <TextInput
             value={justicia.text3}
-            onChangeText={(value) => handleTextChange("text3", value)}
+            onChange={(value) => handleTextChange("text3", value)}
           />
 
           <TextInput
             value={justicia.header2}
-            onChangeText={(value) => handleTextChange("header2", value)}
+            onChange={(value) => handleTextChange("header2", value)}
           />
 
           <TextInput
             value={justicia.text4}
-            onChangeText={(value) => handleTextChange("text4", value)}
+            onChange={(value) => handleTextChange("text4", value)}
           />
 
           <TextInput
             value={justicia.header3}
-            onChangeText={(value) => handleTextChange("header3", value)}
+            onChange={(value) => handleTextChange("header3", value)}
           />
 
           <TextInput
             value={justicia.text5}
-            onChangeText={(value) => handleTextChange("text5", value)}
+            onChange={(value) => handleTextChange("text5", value)}
           />
 
           <TextInput
             value={justicia.text6}
-            onChangeText={(value) => handleTextChange("text6", value)}
+            onChange={(value) => handleTextChange("text6", value)}
           />
         </div>
       ) : (

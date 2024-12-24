@@ -260,9 +260,9 @@ const Actividades = ({ actividad, datos }) => {
 
           <img src={newShow.posterUrl} alt={newShow.title} />
           <TextInput
-            value={newShow.title}
-            onChange={(value) => handleChange(value, "title")}
-            placeholder={"Título"}
+            value={newShow.title} // Pass the controlled value
+            onChange={(value) => handleChange(value, "title")} // Pass the handler
+            placeholder="Título" // Optional placeholder
           />
           <TextInput
             value={newShow.author}
@@ -275,7 +275,6 @@ const Actividades = ({ actividad, datos }) => {
             onChange={(value) => handleChange(value, "description")}
             placeholder={"Descripción"}
             multiline={true}
-            numberOfLines={6}
           />
           <p className="char-count">
             {newShow.description.length}/{MAX_DESCRIPTION_LENGTH}
