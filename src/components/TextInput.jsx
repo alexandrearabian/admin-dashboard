@@ -28,7 +28,7 @@ export default function TextInput({
     // </div>
     <textarea
       value={value}
-      onChange={(e) => onChange(e.target.value)} // Update value from textarea
+      onChange={onChange} // Update value from textarea
       placeholder={placeholder}
       style={style}
       multiline={multiline}
