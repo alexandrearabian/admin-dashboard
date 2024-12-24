@@ -488,7 +488,11 @@ img.obra {
 
 p.obra {
   text-align: left;
-  height: 900px;
+  max-height: 900px;
+  overflow-wrap: break-word; /* Ensures words break when necessary */
+  word-wrap: break-word; /* Compatibility with older browsers */
+  word-break: break-word; /* Break long words */
+  white-space: normal; /* Allows the text to wrap to the next line */
 }
 
 h4.obra {

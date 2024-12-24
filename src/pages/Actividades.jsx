@@ -17,6 +17,7 @@ import {
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import TextInput from "../components/TextInput";
 import ImageBox from "../components/ImageBox";
+import { height } from "@fortawesome/free-brands-svg-icons/fa42Group";
 
 const Actividades = ({ actividad, datos }) => {
   const formato = {
@@ -76,8 +77,7 @@ const Actividades = ({ actividad, datos }) => {
     return () => unsubscribe(); // Clean up the listener on unmount
   }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (value, name) => {
     setNewShow({ ...newShow, [name]: value });
   };
 
@@ -261,18 +261,18 @@ const Actividades = ({ actividad, datos }) => {
           <img src={newShow.posterUrl} alt={newShow.title} />
           <TextInput
             value={newShow.title}
-            onChangeText={handleChange}
+            onChange={(value) => handleChange(value, "title")}
             placeholder={"Título"}
           />
           <TextInput
             value={newShow.author}
-            onChangeText={handleChange}
+            onChange={(value) => handleChange(value, "author")}
             placeholder={"Autor/Director"}
           />
 
           <TextInput
             value={newShow.description}
-            onChangeText={handleChange}
+            onChange={(value) => handleChange(value, "description")}
             placeholder={"Descripción"}
             multiline={true}
             numberOfLines={6}
@@ -283,7 +283,7 @@ const Actividades = ({ actividad, datos }) => {
 
           <TextInput
             value={newShow.bookingUrl}
-            onChangeText={handleChange}
+            onChange={(value) => handleChange(value, "title")}
             placeholder={"Link de reserva (URL)"}
           />
           <ImageBox
