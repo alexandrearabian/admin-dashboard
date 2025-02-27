@@ -282,7 +282,7 @@ const Actividades = ({ actividad, datos }) => {
 
           <TextInput
             value={newShow.bookingUrl}
-            onChange={(value) => handleChange(value, "title")}
+            onChange={(value) => handleChange(value, "bookingUrl")}
             placeholder={"Link de reserva (URL)"}
           />
           <ImageBox
