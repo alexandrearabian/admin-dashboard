@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className="App">
+        <div>
           {/* Show the NavBar only if the user is authenticated */}
           {user && <NavBar />}
 
